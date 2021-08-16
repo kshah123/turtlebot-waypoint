@@ -11,7 +11,7 @@ class pid:
         self.ki = Ki
     def set_kd(self, Kd):
         self.kd = Kd
-    def getOutput(err, err_prev, dt):
+    def getOutput(self,err, err_prev, dt):
         if self.first:
             self.first = False
             return self.kp*err
