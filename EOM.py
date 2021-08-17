@@ -23,11 +23,11 @@ class eom():
         return self.getAccelX()*dt + Vx
     def getVelY(self,Vy,dt):
         return self.getAccelY()*dt + Vy
-    def getPosX(self,Px,dt):
-        return self.getVelX()*dt + Px
-    def getPosY(self,Py,dt):
-        return self.getVelY()*dt + Py
+    def getPosX(self,Px,Vx,dt):
+        return self.getVelX(Vx,dt)*dt + Px
+    def getPosY(self,Py,Vy,dt):
+        return self.getVelY(Vy,dt)*dt + Py
     def getAngVel(self,w,dt):
         return self.getAngAccel()*dt + w
-    def getAngle(self,angle,dt):
-        return self.getAngVel()*dt + angle
+    def getAngle(self,angle,w,dt):
+        return self.getAngVel(w,dt)*dt + angle
