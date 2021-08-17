@@ -8,8 +8,9 @@ class motor:
         self.back_emf_prev = 0
         self.didt_prev = 0
         self.i_int = 0
-    def getOutputs(self, V, dt, ang_vel):
-        didt = (V - self.R * self.i_int - self.ke*self.back_emf_prev)/self.L
+        self.V = 0
+    def getOutputs(self, dt, ang_vel):
+        didt = (self.V - self.R * self.i_int - self.ke*self.back_emf_prev)/self.L
         self.i_int += dt/2*(didt+self.didt_prev)
         self.didt_prev = didt
         self.back_emf_prev = self.R * self.i_int
